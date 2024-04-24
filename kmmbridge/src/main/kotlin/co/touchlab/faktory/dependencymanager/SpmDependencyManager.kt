@@ -337,6 +337,10 @@ class SpmConfig {
     }
 
     fun getPlatformsAsFormattedText(): String {
+        if (platforms.isEmpty()) {
+            iOS()
+        }
+
         val formattedPlatforms = platforms.joinToString(",\n") { platform ->
             "        .${platform.name.value}(.v${platform.version.version})"
         }

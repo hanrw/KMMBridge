@@ -7,6 +7,13 @@ import kotlin.test.assertEquals
 class SpmConfigTest {
 
     @Test
+    fun defaultIosPlatforms() {
+        val config = SpmConfig()
+        assertEquals("""
+        .iOS(.v17)""".trimMargin(), config.getPlatformsAsFormattedText())
+    }
+
+    @Test
     fun defaultPlatforms() {
         val config = SpmConfig().apply {
             platforms {
